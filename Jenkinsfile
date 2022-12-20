@@ -11,7 +11,7 @@ pipeline {
     stage ('Build Image') {
       steps {
         script {
-          dockerapp = docker.build("alexandre/api-produto:1.${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
+          dockerapp = docker.build(registry + ":1.${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
         }
       }
     steps {
