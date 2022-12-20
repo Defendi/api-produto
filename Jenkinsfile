@@ -14,6 +14,7 @@ pipeline {
           dockerapp = docker.build(registry + ":1.${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
         }
       }
+    }
     stage ('Push Image') {
       steps {
         script {
