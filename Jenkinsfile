@@ -19,8 +19,7 @@ pipeline {
       steps {
         script {
           docker.withRegistry('https://registry.hub.docker.com', registryCredencial) {
-            dockerapp.push('latest')
-            dockerapp.push(':1.${env.BUILD_ID}')
+            dockerapp.push()
           }
         }
       }
