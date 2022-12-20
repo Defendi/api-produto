@@ -14,7 +14,8 @@ pipeline {
           dockerapp = docker.build(registry + ":1.${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
         }
       }
-    steps {
+    stage ('Push Image') {
+      steps {
         script {
           docker.withRegistry('https://registry.hub.docker.com', registryCredencial) {
             dockerapp.push()
